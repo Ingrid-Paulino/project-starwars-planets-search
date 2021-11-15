@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import planetsContext from '../context/planetsContext';
 import Loading from './Loading';
 
+import '../App.css';
+
 function Table() {
   const { dataPlanets, isLoading, filters } = useContext(planetsContext);
 
@@ -41,11 +43,16 @@ function Table() {
     const planets = filterPlanetsByValues(planetsByName);
 
     return (
-      <table>
+      <table className="containerTable">
         <thead>
           <tr>
             {Object.keys(dataPlanets[0]).map((key) => (
-              <th key={ key }>{key.replace('_', '').toUpperCase()}</th>
+              <th
+                key={ key }
+                className="nameTable"
+              >
+                {key.replace('_', '').toUpperCase()}
+              </th>
             ))}
           </tr>
         </thead>
@@ -53,7 +60,7 @@ function Table() {
           {planets.map((planet) => (
             <tr key={ planet.name }>
               {Object.values(planet).map((value) => (
-                <td key={ value }>{value}</td>
+                <td key={ value } className="table">{value}</td>
               ))}
             </tr>
           ))}

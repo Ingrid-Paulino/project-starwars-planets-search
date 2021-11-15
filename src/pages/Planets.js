@@ -10,7 +10,7 @@ function Planets() {
       <header>
         <Header />
       </header>
-      <main>
+      <main className="img-espaço">
         <section>
           <Form />
         </section>
